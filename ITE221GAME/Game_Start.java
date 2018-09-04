@@ -14,41 +14,62 @@ public class Game_Start {
 		Scanner console = new Scanner(System.in);
 		
 		Treasure[] startingHand = new Treasure[8];
-		Treasure[] playerHand = new Treasure[5];
+		Treasure[] inPlay = new Treasure[20]; //Cards that give various bonuses/stats e.g. class cards, race cards
+		Treasure[] inHand = new Treasure[5]; //Cards that player can use e.g. potions spells 
+	
 		
-		for(int i = 0; i < 8; i++) {
-			startingHand[i] = Card_Constructor.TreasureCards[Randomizer(0, 37)];
-		System.out.print("\n-=" + i + "=- " + startingHand[i]);
+		for(int a = 0; a < 8; a++) {
+			startingHand[a] = Card_Constructor.TreasureCards[Randomizer(0, 37)];
+		System.out.print("\n-=" + (a+1) + "=- " + startingHand[a]);
 		}
 		
 		System.out.print("\n\nPick five cards: \n");
-		for(int v = 0; v < 5; v++) {
+		for(int b = 0; b < 5; b++) {
 			int number = console.nextInt();
-			playerHand[v] = startingHand[number];
+			inPlay[b] = startingHand[number-1]; //-1 because it shows an array elements with +1 counter
 		}
 		
-		Race race = null;
-		Class Class = null;
+		Treasure[] raceCards = new Treasure[5]; //Equal to amount of allowed cards in players hand in case player is dumb and lucky and chooses 5 race cards
+		Treasure[] classCards = new Treasure[5]; //Same
+		
+		
+		Race Race = new Race("Human");
+		Class Class = new Class("No Class");
 		int bonusStat = 0;
 		int lvlStat = 1;
 		
-		for(int b = 0; b < 5; b++) {
+		for(int c = 0; c < 5; c++) {
 			
-			/*if (playerHand[b].specialCondition.equals("Turns you into an elf!")) race = new Race("Elf");
-			else if (playerHand[b].specialCondition.equals("Turns you into a hafling!")) race = new Race("Hafling");
-			else if (playerHand[b].specialCondition.equals("Turns you into a dwarf!")) race = new Race("Dwarf");
-			else if (playerHand[b].specialCondition.equals("Makes you a warrior!")) Class = new Class("Warrior");
-			else if (playerHand[b].specialCondition.equals("Makes you a wizard!")) Class = new Class("Wizard");
-			else if (playerHand[b].specialCondition.equals("Makes you a thief!")) Class = new Class("Thief");
-			else if (playerHand[b].specialCondition.equals("Makes you a cliric!")) Class = new Class("Cliric");*/
-			//if (playerHand[b].specialCondition.equals("Level Up!")) lvlStat++;
-			
-			bonusStat += playerHand[b].bonus;
-			System.out.print(playerHand[b]);
-			
+			if (inPlay[c].specialCondition != null) {
+				if ( inPlay[c].specialCondition.equals("Race Card")) raceCards[c] = inPlay[c];
+				else if (inPlay[c].specialCondition.equals("Class Card")) classCards[c] = inPlay[c];
+			}
+			else bonusStat += inPlay[c].bonus;
+			System.out.print("\n" + inPlay[c]);			
 		}
 		
-		Hero Player = new Hero(Class, race, bonusStat, lvlStat);
+		for(int d = 0; d < 5; d++) {
+			if (raceCards[d].typeOfTreasure != null) {
+			System.out.print("\nDo you want to activate card, that will make your race " + raceCards[d].typeOfTreasure + "? Yes/No");
+			String answer = console.nextLine();
+			if (answer.equals("Yes")) {
+				Race = new Race(raceCards[d].typeOfTreasure);
+				break;
+			}
+			}
+		}
+		
+		for(int f = 0; f < 5; f++) {
+			System.out.print("\nDo you want to activate card, that will make your class " + classCards[f].typeOfTreasure + "? Yes/No");
+			String answer = console.nextLine();
+			if (answer.equals("Yes")) {
+				Class = new Class(classCards[f].typeOfTreasure);
+				break;
+			}
+		}
+		
+		
+		Hero Player = new Hero(Class, Race, bonusStat, lvlStat);
 		
 		System.out.print("\n\n"+Player);
 		
