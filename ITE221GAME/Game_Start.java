@@ -11,21 +11,29 @@ public class Game_Start {
 	}
 	
 	public static void main(String[] args) {
-		Scanner console = new Scanner(System.in);
+		Scanner consoleInt = new Scanner(System.in); //Ask ajan why cant single console do the thing
+		Scanner consoleStr = new Scanner(System.in);
+
 		
 		Treasure[] startingHand = new Treasure[8];
-		Treasure[] inPlay = new Treasure[20]; //Cards that give various bonuses/stats e.g. class cards, race cards
+		Treasure[] inPlay = new Treasure[20]; //Cards that give various bonuses/stats
 		Treasure[] inHand = new Treasure[5]; //Cards that player can use e.g. potions spells 
-	
+		Treasure Helm = null;
+		Treasure firstHand = null;
+		Treasure secondHand = null;
+		Treasure bothHands = null;
+		Treasure armor = null;
+		Treasure shoes = null;
+		
 		
 		for(int a = 0; a < 8; a++) {
-			startingHand[a] = Card_Constructor.TreasureCards[Randomizer(0, 37)];
+			startingHand[a] = Card_Constructor.TreasureCards[Randomizer(24, 37)];
 		System.out.print("\n-=" + (a+1) + "=- " + startingHand[a]);
 		}
 		
 		System.out.print("\n\nPick five cards: \n");
 		for(int b = 0; b < 5; b++) {
-			int number = console.nextInt();
+			int number = consoleInt.nextInt();
 			inPlay[b] = startingHand[number-1]; //-1 because it shows an array elements with +1 counter
 		}
 		
@@ -43,15 +51,36 @@ public class Game_Start {
 			if (inPlay[c].specialCondition != null) {
 				if ( inPlay[c].specialCondition.equals("Race Card")) raceCards[c] = inPlay[c];
 				else if (inPlay[c].specialCondition.equals("Class Card")) classCards[c] = inPlay[c];
+				else if (inPlay[c].specialCondition.equals("Helm")) {
+					if (Helm == null) {
+						Helm = inPlay[c];
+					}
+				}
+				else if (inPlay[c].specialCondition.equals("Class Card")) classCards[c] = inPlay[c];
+				else if (inPlay[c].specialCondition.equals("Class Card")) classCards[c] = inPlay[c];
+				else if (inPlay[c].specialCondition.equals("Class Card")) classCards[c] = inPlay[c];
+				else if (inPlay[c].specialCondition.equals("Class Card")) classCards[c] = inPlay[c];
+
 			}
 			else bonusStat += inPlay[c].bonus;
 			System.out.print("\n" + inPlay[c]);			
 		}
 		
+		for(int f = 0; f < 5; f++) {
+			if (classCards[f] != null) {
+			System.out.println("\n\nDo you want to activate card, that will make your class a " + classCards[f].typeOfTreasure + "? Yes/No");
+			String answer = consoleStr.nextLine();
+			if (answer.equals("Yes")) {
+				Class = new Class(classCards[f].typeOfTreasure);
+				break;
+			}
+			}
+		}
+			
 		for(int d = 0; d < 5; d++) {
-			if (raceCards[d].typeOfTreasure != null) {
+			if (raceCards[d] != null) {
 			System.out.print("\nDo you want to activate card, that will make your race " + raceCards[d].typeOfTreasure + "? Yes/No");
-			String answer = console.nextLine();
+			String answer = consoleStr.nextLine();
 			if (answer.equals("Yes")) {
 				Race = new Race(raceCards[d].typeOfTreasure);
 				break;
@@ -59,14 +88,6 @@ public class Game_Start {
 			}
 		}
 		
-		for(int f = 0; f < 5; f++) {
-			System.out.print("\nDo you want to activate card, that will make your class " + classCards[f].typeOfTreasure + "? Yes/No");
-			String answer = console.nextLine();
-			if (answer.equals("Yes")) {
-				Class = new Class(classCards[f].typeOfTreasure);
-				break;
-			}
-		}
 		
 		
 		Hero Player = new Hero(Class, Race, bonusStat, lvlStat);
@@ -78,3 +99,5 @@ public class Game_Start {
 	
 
 }
+
+
