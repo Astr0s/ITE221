@@ -4,12 +4,12 @@ public class Card_Constructor {
 		public static Treasure[] TreasureCards = {
 		
 		new Treasure("Boots of Running Really Fast", 0, 400, "Human", null, "Shoes", null), //gives -2 to escape
-		new Treasure("Spiky Knees", 1, 200, null, "Human", "", null),
+		new Treasure("Spiky Knees", 1, 200, null, "Human", "Regular", null),
 		new Treasure("Staff of Napalm", 5, 800, "Human", "Wizard", "1 Hand", null),
 		new Treasure("Stepladder", 3, 400, "Halfling", null, "", null),
 		new Treasure("Swiss Army Polearm", 4, 600, "Human", null, "2 Hand", null),
 		new Treasure("Flaming Armor", 2, 400, "Human", null, "Armour", null),
-		new Treasure("Club", 3, 400, "Human", null, "1 Hand", null),
+		new Treasure("Club", 3, 400, "Human", null, "1 Hand", null), //for some reason club often gives an error
 		new Treasure("Hammer of Kneecap", 4, 600, "Dwarf", null, "1 Hand", null),
 		new Treasure("Helm of Courage", 1, 200, "Human", null, "Helmet", null),
 		new Treasure("Huge Rock", 3, 0, "Human", null, "2 Hand", null),
@@ -27,20 +27,24 @@ public class Card_Constructor {
 		new Treasure("Cloak of Obcsurity", 4, 600, "Human", "Thieves", "Regular", null),
 		new Treasure("Dagger of Treachery", 3, 400, "Human", "Thieves", "1 Hand", null),
 		new Treasure("Eleven-Foot Pole", 1, 200, "Human", null, "2 Hand", null), //23 Treasures ATM
-		new Treasure("Elf Race Card", 0, 000, "", null, "", "Turns you into an elf!"),
-		new Treasure("Elf Race Card", 0, 000, "", null, "", "Turns you into an elf!"),
-		new Treasure("Dwarf Race Card", 0, 000, "", null, "", "Turns you into a dwarf!"),
-		new Treasure("Dwarf Race Card", 0, 000, "", null, "", "Turns you into a dwarf!"),
-		new Treasure("Halfling Race Card", 0, 000, "", null, "", "Turns you into a halfling!"),
-		new Treasure("Halfling Race Card", 0, 000, "", null, "", "Turns you into a halfling!"),
-		new Treasure("Warrior Class Card", 0, 000, "", null, "", "Makes you a warrior!"),
-		new Treasure("Warrior Class Card", 0, 000, "", null, "", "Makes you a warrior!"),
-		new Treasure("Thief Class Card", 0, 000, "", null, "", "Makes you a thief!"),
-		new Treasure("Thief Class Card", 0, 000, "", null, "", "Makes you a thief!"),
-		new Treasure("Wizard Class Card", 0, 000, "", null, "", "Makes you a wizard!"),
-		new Treasure("Wizard Class Card", 0, 000, "", null, "", "Makes you a wizard!"),
-		new Treasure("Cliric Class Card", 0, 000, "", null, "", "Makes you a cliric!"),
-		new Treasure("Cliric Class Card", 0, 000, "", null, "", "Makes you a cliric!"),
+		//Race Cards Below
+		new Treasure("Elf Race Card", 0, 000, "", null, "Elf", "Race Card"),
+		new Treasure("Elf Race Card", 0, 000, "", null, "Elf", "Race Card"),
+		new Treasure("Dwarf Race Card", 0, 000, "", null, "Dwarf", "Race Card"),
+		new Treasure("Dwarf Race Card", 0, 000, "", null, "Dwarf", "Race Card"),
+		new Treasure("Halfling Race Card", 0, 000, "", null, "Halfling", "Race Card"),
+		new Treasure("Halfling Race Card", 0, 000, "", null, "Halfling", "Race Card"),
+		//Class Cards Below
+		new Treasure("Warrior Class Card", 0, 000, "", null, "Warrior", "Class Card"),
+		new Treasure("Warrior Class Card", 0, 000, "", null, "Warrior", "Class Card"),
+		new Treasure("Thief Class Card", 0, 000, "", null, "Thief", "Class Card"),
+		new Treasure("Thief Class Card", 0, 000, "", null, "Thief", "Class Card"),
+		new Treasure("Wizard Class Card", 0, 000, "", null, "Wizard", "Class Card"),
+		new Treasure("Wizard Class Card", 0, 000, "", null, "Wizard", "Class Card"),
+		new Treasure("Cliric Class Card", 0, 000, "", null, "Cliric", "Class Card"),
+		new Treasure("Cliric Class Card", 0, 000, "", null, "Cliric", "Class Card"),
+		//Level Up Cards
+		new Treasure("Get a level!", 0, 000, "", null, "", "Level Up!"),
 		new Treasure("Get a level!", 0, 000, "", null, "", "Level Up!"),
 		new Treasure("Get a level!", 0, 000, "", null, "", "Level Up!"),
 

@@ -10,6 +10,36 @@ public class Game_Start {
 		return (int) random;
 	}
 	
+	private fightOrFlee (Hero Player, Monster Monster) {
+		Scanner consoleStr = new Scanner(System.in); 
+		String answer = consoleStr.nextLine();
+		if (asnwer == yes) {
+			Combat(Hero Player, Monster Monster);
+		}
+		
+		else {
+			if (monster.escapeStat > Randomizer(1, 6) {
+				Combat(Hero Player, Monster Monster);
+			}
+			else {
+				return "You escaped";
+			}
+		}
+
+	}
+	
+	private Combat(Hero Player, Monster Monster) {
+		if (player.bouns > monster.bonus) {
+			//return "You won";
+			
+		}
+		
+		else {
+			return "You loose";
+
+		}
+	}
+	
 	public static void main(String[] args) {
 		Scanner consoleInt = new Scanner(System.in); //Ask ajan why cant single console do the thing
 		Scanner consoleStr = new Scanner(System.in);

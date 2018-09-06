@@ -5,7 +5,7 @@ public class Treasure extends Card_Constructor{
 	int price;
 	String raceRestrict;
 	String classRestriction;
-	String typeOfTreasure; //1 handed weapon, 2 handed weapon, helmet, armor, shoes, regular
+	String typeOfTreasure; //1 handed weapon, 2 handed weapon, helmet, armor, shoes, regular, class, race
 	String specialCondition;
 	
 	public Treasure (String Name, int bns, int prce, String raceRest, String clssRest, String tpOfTres, String spclCond) {

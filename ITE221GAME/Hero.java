@@ -53,6 +53,32 @@ public class Hero {
 		offHandItems[0] = "";
 	}
 	
+	public Hero (Race HeroRace, int bonusStat, int lvlStat) {
+		lvl = lvlStat;
+		bonus = bonusStat;
+		Class = null;
+		Race = HeroRace;
+		handItems[0] = "";
+		offHandItems[0] = "";
+	}
+	
+	public Hero (Class HeroClass, int bonusStat, int lvlStat) {
+		lvl = lvlStat;
+		bonus = bonusStat;
+		Class = HeroClass;
+		Race = null;
+		handItems[0] = "";
+		offHandItems[0] = "";
+	}
+	
+	public Hero (int bonusStat, int lvlStat) {
+		lvl = lvlStat;
+		bonus = bonusStat;
+		Class = null;
+		Race = null;
+		handItems[0] = "";
+		offHandItems[0] = "";
+	}
 	
 	public String toString() {
 		return "Your level is: " + lvl
